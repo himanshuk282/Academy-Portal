@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Academy_Portal.Models.Batch>
+@{
+    ViewBag.Title = "BatchApproval";
+    Layout = "~/Views/Shared/_LayoutFaculty.cshtml";
+}
+
+<h2>BatchApproval</h2>
+@if (!Model.Any())
+{
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Later!</strong> No batches assigned by ADMIN. Please check after sometime
+    </div>
+}
+else
+{
+    <h4>Please Accept or Reject the assigned batches</h4>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Batch ID</th>
+            <th>Skill ID</th>
+            <th>Module ID</th>
+            <th>Technology</th>
+            <th>Faculty ID</th>
+            <th>Batch Start Date</th>
+            <th>Batch End Date</th>
+            <th>Batch Capacity</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var batch in Model)
+        {
+            <tr>
+                <td>@batch.BatchID</td>
+                <td>@batch.SkillID</td>
+                <td>@batch.ModuleID</td>
+                <td>@batch.Technology</td>
+                <td>@batch.FacultyID</td>
+                <td>@batch.BatchStartDate.Value.ToShortDateString()</td>
+                <td>@batch.BatchEndDate.Value.ToShortDateString()</td>
+                <td>@batch.BatchCapacity</td>
+                <td>
+                    @Html.ActionLink("Approve", "AcceptBatch", new { id = batch.BatchID }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Reject", "DeleteBatch", new { id = batch.BatchID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+
+        }
+
+    </table>
+}
+<div>
+    @Html.ActionLink("Home", "Index", "AcademyPortalFaculty", null, new { @class = "btn btn-primary" })
+</div>
+

@@ -1,0 +1,23 @@
+﻿@model Academy_Portal.Views.ViewModels.BatchNominationModel
+@{
+    ViewBag.Title = "BatchDetails";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>BatchDetails</h2>
+<dl>
+    <dd>Name</dd>
+    <dt>@Model.Batch.Technology</dt>
+    <dd>Batch Capacity</dd>
+    <dt>@Model.Batch.BatchCapacity</dt>
+    <dd>Batch Start Date</dd>
+    <dt>@Model.Batch.BatchStartDate.Value.ToShortDateString()</dt>
+    <dd>Faculty Name</dd>
+    <dt>@Model.Faculty.FirstName</dt>
+    <dd>Proficieny Level</dd>
+    <dt>@Model.Faculty.Proficiencylevel</dt>
+</dl>
+<div>
+    <p>@Html.ActionLink("Back to List", "BatchNominations", null, new { @class="btn btn-default"})</p>
+</div>
+

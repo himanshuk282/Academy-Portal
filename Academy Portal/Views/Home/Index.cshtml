@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Academy Portal";
+}
+
+<div>
+    <div style="text-align: center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+        <h1>Academy Portal</h1>
+        <h3>Welcome to the Academy Portal</h3>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            @*Admin Styling*@
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 well">
+                        <a href="https://localhost:44357/Account/Register?role=Admin">
+                            <img alt="Admin" src="~/Content/Images/AdminLoginPage.png" width="160" height="180" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 well">
+                        @Html.ActionLink("Create New Admin", "Register", "Account", new { role = "Admin" }, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+            </div>
+            @*Faculty Styling*@
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 well">
+                        <a href="https://localhost:44357/Account/Register?role=Admin">
+                            <img alt="Admin" src="~/Content/Images/FacultyLoginPage.png" width="160" height="180" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 well">
+                        @Html.ActionLink("Create New Faculty", "Register", "Account", new { role = "Faculty" }, new { @class = " btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+            @*Employee Styling*@
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 well">
+                        <a href="https://localhost:44357/Account/Register?role=Admin">
+                            <img alt="Admin" src="~/Content/Images/Employee.png" width="160" height="180" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 well">
+                        @Html.ActionLink("Create New Employee", "Register", "Account", new { role = "Employee" }, new { @class = " btn btn-success" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

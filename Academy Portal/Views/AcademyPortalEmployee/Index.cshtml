@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Academy Portal - Employee";
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+}
+<div style="text-align: center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;border:solid;margin-top:2px;background-color:lightgrey">
+    <h2>Welcome to Academy Portal - Employees' Section</h2>
+    <h4>Choose an action to do something!</h4>
+</div>
+<hr />
+<div class="list-group">
+    <div class="list-group-item" style="font-family: Arial">
+        <p>
+            <b>Search</b>:
+            <a href="@Url.Action("BasicSearch", "AcademyPortalEmployee")" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search"></span>
+                Basic Search
+            </a> |
+            <a href="@Url.Action("AdvanceSearch", "AcademyPortalEmployee")" class="btn btn-danger">
+                <span class="glyphicon glyphicon-flash"></span>
+                Advance Search
+            </a>
+        </p>
+    </div>
+    <div class="list-group-item">
+        <a href="@Url.Action("MyLearnings", "AcademyPortalEmployee")" class="btn btn-success">
+            <span class="glyphicon glyphicon-education"></span>
+            My Learnings
+        </a>
+    </div>
+    <div class="list-group-item">
+        <a href="@Url.Action("HelpSection", "AcademyPortalEmployee")" class="btn btn-info">
+            <span class="glyphicon glyphicon-wrench"></span>
+            Help Section
+        </a>
+    </div>
+    <div class="list-group-item-info">
+        <p>Note: User can register only one course at a time. Admin will approve it then only user can raise a new request</p>
+    </div>
+</div>
+

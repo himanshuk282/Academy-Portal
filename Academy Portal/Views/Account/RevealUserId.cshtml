@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "RevealUserId";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Academy Portal</h2>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Please make note of this user id, user id is issued once per user and can't be changed<br />
+    <strong>User Id: </strong> @ViewBag.Id
+</div>
+<div>
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class="btn btn-primary"})
+</div>
+

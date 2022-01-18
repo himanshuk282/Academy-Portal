@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Academy Portal - Faculty";
+    Layout = "~/Views/Shared/_LayoutFaculty.cshtml";
+}
+
+<div style="text-align: center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;border:solid;margin-top:2px;background-color:lightgrey">
+    <h2>Welcome to the Faculty Dashboard</h2>
+    <h4>You can perform the below actions</h4>
+</div>
+<div class="container-fluid" style="margin-top:10px">
+    <ul class="list-group">
+        <li class="list-group-item-success">
+            <a href="@Url.Action("BatchApproval", "AcademyPortalFaculty",new { id = ViewBag.FacultyId })" class="btn btn-success">
+                <span class="glyphicon glyphicon-tasks"></span>
+                Batch Registration
+            </a>
+        </li>
+        <li class="list-group-item-info">
+            <a href="@Url.Action("HelpSection", "AcademyPortalFaculty")" class="btn btn-info">
+                <span class="glyphicon glyphicon-wrench"></span>
+                Help Section
+            </a>
+        </li>
+    </ul>
+</div>

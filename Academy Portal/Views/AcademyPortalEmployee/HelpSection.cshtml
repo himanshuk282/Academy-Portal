@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Academy_Portal.Models.Help>
+@{
+    ViewBag.Title = "HelpSection";
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<h2>HelpSection</h2>
+@if (!Model.Any())
+{
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Alert!</strong> No issue raised yet. Please click New Issue to raise a ticket.
+    </div>
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Emergency Contact!</strong> Incase of emergency, contact on this number: 0522-2652452
+    </div>
+    <div>
+        <p>
+            @Html.ActionLink("New Issue", "GetHelp", null, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Home", "Index", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+}
+else
+{
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Emergency Contact!</strong> Incase of emergency, contact on this number: 0522-2652452
+    </div>
+    <div>
+        <p>
+            @Html.ActionLink("New Issue", "GetHelp", null, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Home", "Index", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+    <table class="table-bordered table-hover table">
+        <tr>
+            <th>RequestId</th>
+            <th>Issue</th>
+            <th>Description</th>
+            <th>Date Of Ticket</th>
+            <th>Resolution Provided</th>
+        </tr>
+        @foreach (var helpItem in Model)
+        {
+            <tr>
+                <td>@helpItem.RequestId</td>
+                <td>@helpItem.Issue</td>
+                <td>@helpItem.Description</td>
+                <td>@helpItem.DateOfTicket.Value.ToShortDateString()</td>
+                @if (helpItem.ResolutionStatus == 1)
+                {
+
+                    <td>@helpItem.ResolutionProvided</td>
+                }
+                else
+                {
+                    <td style="color: darkred">Pending with Admin</td>
+                }
+            </tr>
+        }
+    </table>
+}
+
+

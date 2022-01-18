@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Academy_Portal.Models.Batch>
+@{
+    ViewBag.Title = "ReportSubmission";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ReportSubmission</h2>
+@if (!Model.Any())
+{
+    <div>
+        <p>No data available with that Search ID, Please verify and try again.</p>
+        <p>@Html.ActionLink("Go Back", "ReportManagement", null, new { @class = "btn btn-default" })</p>
+    </div>
+}
+else
+{
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Batch ID</th>
+            <th>Classroom Name</th>
+            <th>Technology</th>
+            <th>Module ID</th>
+            <th>Skill ID</th>
+            <th>Faculty ID</th>
+            <th>Batch Start Date</th>
+            <th>Batch End Date</th>
+        </tr>
+        @foreach (var batch in Model)
+        {
+            <tr>
+                <td>@batch.BatchID</td>
+                <td>@batch.ClassroomName</td>
+                <td>@batch.Technology</td>
+                <td>@batch.ModuleID</td>
+                <td>@batch.SkillID</td>
+                <td>@batch.FacultyID</td>
+                <td>@batch.BatchStartDate.Value.ToShortDateString()</td>
+                <td>@batch.BatchEndDate.Value.ToShortDateString()</td>
+            </tr>
+        }
+    </table>
+    using (Html.BeginForm("ExportToExcel", "AcademyPortalAdmin", new { searchBy = ViewBag.SearchBy, search = ViewBag.Search }, FormMethod.Post))
+    {
+        <div>
+            <input type="submit" value="Export To Excel" class="btn btn-success" /> |
+            @Html.ActionLink("Export To Pdf", "ExportToPdf", new { queryName = ViewBag.SearchBy, query = ViewBag.Search }, new { @class = "btn btn-danger" })
+        </div>
+
+    }
+
+}

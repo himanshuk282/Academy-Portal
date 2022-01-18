@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "LoginMessageView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Message From Academy Portal</h2>
+@if (ViewBag.LoginStatus == 0)
+{
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Heads Up!</strong> @ViewBag.Message
+    </div>
+}
+@if (ViewBag.LoginStatus == -1)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Sorry!</strong> @ViewBag.Message
+    </div>
+}
+<div>
+    @Html.ActionLink("Click here to go to Academy Portal Home Page", "Index", "Home")
+</div>
+

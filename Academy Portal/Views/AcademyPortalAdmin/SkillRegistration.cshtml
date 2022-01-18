@@ -1,0 +1,31 @@
+﻿@model Academy_Portal.Models.Skill
+@{
+    ViewBag.Title = "SkillRegistration";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>SkillRegistration</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new skill</h4>
+    <hr />
+    @Html.ValidationSummary(false,"", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(s => s.SkillName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(s => s.SkillName, new {@class="form-control",@placeholder="Enter a Skill"})
+        </div>
+    </div>
+    <br/>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" style="margin-top: 10px">
+            <input type="submit" class="btn btn-success" value="Submit" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

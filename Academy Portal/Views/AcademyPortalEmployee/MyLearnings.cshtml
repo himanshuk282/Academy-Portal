@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Academy_Portal.Models.Batch>
+@{
+    ViewBag.Title = "MyLearnings";
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<h2>My Learnings</h2>
+<h4>You have enrolled for the following courses</h4>
+@if (!(Model.Any()))
+{
+    <div class="alert alert-info">
+        <p>No Courses Added, First add some courses!</p>
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>BatchID</th>
+            <th>Technology</th>
+            <th>Classroom Name</th>
+            <th>Learning Mode</th>
+            <th>Completion Status</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BatchID</td>
+                <td>@item.Technology</td>
+                <td>@item.ClassroomName</td>
+                @if (item.Module.ExecutionType == "E-Learning")
+                {
+                    <td>
+                        <a href="@Url.Action("ELearningExecution", "AcademyPortalEmployee",new { id = item.BatchID })">
+                            <span class="glyphicon glyphicon-film"></span>
+                            @item.Module.ExecutionType.ToString()
+                        </a>
+                    </td>
+                    <td>In Progress</td>
+                }
+                else
+                {
+                    <td>@item.Module.ExecutionType</td>
+                    <td>Not Applicable</td>
+                }
+            </tr>
+        }
+    </table>
+}
+
+
+

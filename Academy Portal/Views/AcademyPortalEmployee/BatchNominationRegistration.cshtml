@@ -1,0 +1,23 @@
+﻿@model Academy_Portal.Models.Batch
+@{
+    ViewBag.Title = "BatchNominationRegistration";
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<h2>BatchNominationRegistration</h2>
+<h3>Batch Details</h3>
+<dl class="dl-horizontal">
+    <dt style="text-align:left">@Html.DisplayNameFor(b => b.BatchID)</dt>
+    <dd>@Html.TextBoxFor(model => model.BatchID, new { @class = "form-control", @readonly = "readonly" })</dd>
+    <dt style="text-align:left">@Html.DisplayNameFor(b => b.Technology)</dt>
+    <dd>@Html.TextBoxFor(model => model.Technology, new { @class = "form-control", @readonly = "readonly" })</dd>
+    <dt style="text-align:left">@Html.DisplayNameFor(b => b.BatchStartDate)</dt>
+    <dd>@Html.TextBoxFor(model => model.BatchStartDate, new { @class = "form-control", @readonly = "readonly" })</dd>
+    <dt style="text-align:left">@Html.DisplayNameFor(b => b.BatchEndDate)</dt>
+    <dd>@Html.TextBoxFor(model => model.BatchEndDate, new { @class = "form-control", @readonly = "readonly" })</dd>
+    <dt style="text-align:left">@Html.DisplayNameFor(b => b.ClassroomName)</dt>
+    <dd>@Html.TextBoxFor(model => model.ClassroomName, new { @class = "form-control", @readonly = "readonly" })</dd>
+    <dt></dt>
+    <dd style="margin-top:10px">@Html.ActionLink("Confirm Nomination", "BatchNominations", new { id = Model.BatchID }, new { @class = "btn btn-success" })</dd>
+</dl>
+

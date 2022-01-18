@@ -1,0 +1,49 @@
+﻿@model Academy_Portal.Views.ViewModels.FacultyDetailsViewModel
+@{
+    ViewBag.Title = "NewRegistrations";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>New Registration</h2>
+@if (!Model.Faculty.Any())
+{
+    <div class="alert alert-info">
+        <p>No New Registrations pending for approval</p>
+    </div>
+}
+else
+{
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><strong>New Registration Table</strong></div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Faculty Name</th>
+                <th>Faculty Email</th>
+                <th>Faculty Date of Birth</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var faculty in Model.Faculty)
+            {
+                <tr>
+                    <td>
+                        <a href="@Url.Action("FacultyDetails", "AcademyPortalAdmin",new { id = faculty.UserId })">
+                            <span class="glyphicon glyphicon-user"></span>
+                            @String.Concat(faculty.FirstName, " ", faculty.LastName)
+                        </a>
+                    </td>
+                    @*<td>@Html.ActionLink(String.Concat(faculty.FirstName, " ", faculty.LastName), "FacultyDetails", "AcademyPortalAdmin", new { id = faculty.UserId }, null)</td>*@
+                    <td>@faculty.Email</td>
+                    <td>@faculty.DoB.Value.ToShortDateString()</td>
+                    <td>
+                        @Html.ActionLink("Approve", "AcceptFaculty", new { id = faculty.UserId }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Reject", "DeleteFaculty", new { id = faculty.UserId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+}
+

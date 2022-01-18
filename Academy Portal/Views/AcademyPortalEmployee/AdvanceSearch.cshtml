@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Academy_Portal.Models.Batch>
+@{
+    ViewBag.Title = "AdvanceSearch";
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<h2>AdvanceSearch</h2>
+<div>
+    <p>
+        @using (Html.BeginForm("AdvanceSearch", "AcademyPortalEmployee", FormMethod.Get))
+        {
+            <b>Search By:</b>
+            @Html.RadioButton("searchBy", "BatchStartDate")<text>Batch Start Date</text>
+            @Html.RadioButton("searchBy", "BatchEndDate")<text>Batch End Date</text>
+            @Html.RadioButton("searchBy", "ProficiencyLevel")<text>Proficiency Level</text><br />
+            @Html.TextBox("search")<input type="submit" value="Search" class="btn-success" style="margin-left: 5px" />
+            @Html.ActionLink("Reset", "AdvanceSearch")
+        }
+    </p>
+</div>
+@if (!Model.Any())
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Sorry! </strong> No results found. Try Again!
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                <a href="@Url.Action("AdvanceSearch", "AcademyPortalEmployee",new { sortBy = ViewBag.SortBatchParam, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] })">
+                    Batch Id
+                    <span class="glyphicon glyphicon-sort-by-order"></span>
+                </a>
+
+            </th>
+            <th>Technology</th>
+            <th>
+                <a href="@Url.Action("AdvanceSearch", "AcademyPortalEmployee",new { sortBy = ViewBag.SortBatchStartParam, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] })">
+                    Batch Start Date
+                    <span class="glyphicon glyphicon-sort-by-attributes"></span>
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Action("AdvanceSearch", "AcademyPortalEmployee",new { sortBy = ViewBag.SortBatchEndParam, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] })">
+                    Batch End Date
+                    <span class="glyphicon glyphicon-sort-by-attributes"></span>
+                </a>
+            </th>
+            <th>Batch Capacity</th>
+            <th>Classroom Name</th>
+            <th>
+                <a href="@Url.Action("AdvanceSearch", "AcademyPortalEmployee",new { sortBy = ViewBag.SortModuleParam, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] })">
+                    Module Id
+                    <span class="glyphicon glyphicon-sort"></span>
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Action("AdvanceSearch", "AcademyPortalEmployee",new { sortBy = ViewBag.SortSkillParam, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] })">
+                    Skill Id
+                    <span class="glyphicon glyphicon-sort"></span>
+                </a>
+            </th>
+            <th>
+                <a href="@Url.Action("AdvanceSearch", "AcademyPortalEmployee",new { sortBy = ViewBag.SortFacultyParam, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] })">
+                    Faculty Id
+                    <span class="glyphicon glyphicon-sort"></span>
+                </a>
+            </th>
+        </tr>
+        @foreach (var batch in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("BatchNominationRegistration", "AcademyPortalEmployee",new { id = batch.BatchID })">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        @batch.BatchID.ToString()
+                    </a>
+                </td>
+                <td>@batch.Technology</td>
+                <td>@batch.BatchStartDate.Value.ToShortDateString()</td>
+                <td>@batch.BatchEndDate.Value.ToShortDateString()</td>
+                <td>@batch.BatchCapacity</td>
+                <td>@batch.ClassroomName</td>
+                <td>
+                    @if (batch.Module.ExecutionType == "E-Learning")
+                    {
+                        <a href="@Url.Action("ModuleNominationRegistration", "AcademyPortalEmployee",new { id = batch.ModuleID })">
+                            @batch.ModuleID.ToString()
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </a>
+                    }
+                    else
+                    {
+                        @batch.ModuleID.ToString()
+                    }
+                </td>
+                <td>@batch.SkillID</td>
+                <td>@batch.FacultyID</td>
+            </tr>
+
+        }
+    </table>
+}
+
+
+

@@ -1,0 +1,125 @@
+﻿@model Academy_Portal.Models.FacultyUser
+
+@{
+    ViewBag.Title = "FacultyDetails";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Faculty Details</h2>
+
+<div>
+    <h4><strong>@String.Concat(Model.FirstName, " ", Model.LastName)</strong></h4>
+    <hr />
+    <dl class="dl-horizontal" style="text-align:left">
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.FirstName)*@
+            @Html.TextBoxFor(model => model.FirstName, new { @class="form-control",@readonly="readonly"})
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @readonly = "readonly" })
+            @*@Html.DisplayFor(model => model.LastName)*@
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.DoB)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.DoB, "{0:d MMM yyyy}", new { @class = "form-control",@readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.Gender, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.ContactNumber, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.UserCategory)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.UserCategory, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.UserId, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.Proficiencylevel)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.Proficiencylevel, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.TotalHoursOfTeaching)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.TotalHoursOfTeaching, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.SkillID)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.SkillID, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.ModuleID)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.ModuleID, new { @class = "form-control", @readonly = "readonly" })
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Approve", "AcceptFaculty", new { id = Model.UserId }, new {@class="btn btn-success"}) |
+    @Html.ActionLink("Reject", "DeleteFaculty", new { id = Model.UserId }, new { @class = "btn btn-danger" }) |
+    @Html.ActionLink("Back to List", "NewRegistrations",null, new { @class = "btn btn-default" })
+</p>

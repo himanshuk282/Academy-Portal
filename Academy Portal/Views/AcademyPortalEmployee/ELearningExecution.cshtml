@@ -1,0 +1,279 @@
+﻿@model Academy_Portal.Models.Batch
+@{
+    ViewBag.Title = "ELearningExecution";
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<h2>E-Learning Execution</h2>
+<h4>New way of learning at Academy Portal</h4>
+@if (Model.Technology == "DotNet")
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="list-group well">
+                    <div class="list-group-item-heading">
+                        <strong>.NET Framework</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        .NET is a framework to develop software applications.
+                        It is designed and developed by Microsoft and the first
+                        beta version released in 2000.It is used to
+                        develop applications for web, Windows, phone.
+                        Moreover, it provides a broad range of functionalities and support.
+                    </div>
+                    <div class="list-group-item-heading">
+                        <strong>Common Language Runtime</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        It is a program execution engine that loads and executes the program.
+                        It converts the program into native code. It acts as an interface
+                        between the framework and operating system. It does exception
+                        handling, memory management, and garbage collection.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 well">
+                <iframe width="535" height="315"
+                        src="https://www.youtube.com/embed/E7Voso411Vs"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        class="center-block"
+                        allowfullscreen>
+                </iframe>
+                <br />
+                <div class="progress">
+                    <div id="myBar" class="progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">45% Complete</span>
+                    </div>
+                </div>
+                <p>
+                    <button onclick="move()" class="btn btn-success">Click Me</button> |
+                    @Html.ActionLink("Home", "Index", "AcademyPortalEmployee", null, new { @class = "btn btn-primary" })
+                </p>
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Warning!</strong> To track the progress click the Click Me button.
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="list-group well">
+                    <div class="list-group-item-heading">
+                        <strong>.NET Framework</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        .NET is a framework to develop software applications.
+                        It is designed and developed by Microsoft and the first
+                        beta version released in 2000.It is used to
+                        develop applications for web, Windows, phone.
+                        Moreover, it provides a broad range of functionalities and support.
+                    </div>
+                    <div class="list-group-item-heading">
+                        <strong>Common Language Runtime</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        It is a program execution engine that loads and executes the program.
+                        It converts the program into native code. It acts as an interface
+                        between the framework and operating system. It does exception
+                        handling, memory management, and garbage collection.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (Model.Technology == "Java")
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="list-group well">
+                    <div class="list-group-item-heading">
+                        <strong>Java Tutorial</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        Our core Java programming tutorial is designed
+                        for students and working professionals. Java is
+                        an object-oriented, class-based, concurrent,
+                        secured and general-purpose computer-programming
+                        language. It is a widely used robust technology.
+                    </div>
+                    <div class="list-group-item-heading">
+                        <strong>What is Java?</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        Java is a programming language and a platform.
+                        Java is a high level, robust, object-oriented
+                        and secure programming language.
+                        <strong>Platform:</strong>Any hardware or
+                        software environment in which a program runs,
+                        is known as a platform. Since Java has a
+                        runtime environment (JRE) and API, it is called
+                        a platform.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 well">
+                <iframe width="535" height="315" name="iframe_a"
+                        src="https://www.youtube.com/embed/eIrMbAQSU34"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        class="center-block"
+                        allowfullscreen>
+                </iframe>
+                <br />
+                <div class="progress">
+                    <div id="myBar" class="progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">45% Complete</span>
+                    </div>
+                </div>
+                <p>
+                    <button onclick="move()" class="btn btn-success">Click Me</button> |
+                    @Html.ActionLink("Home", "Index", "AcademyPortalEmployee", null, new { @class = "btn btn-primary" })
+                </p>
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Warning!</strong> To track the progress click the Click Me button.
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="list-group well">
+                    <div class="list-group-item-heading">
+                        <strong>Application</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        Our core Java programming tutorial is designed
+                        for students and working professionals. Java is
+                        an object-oriented, class-based, concurrent, secured
+                        and general-purpose computer-programming language.
+                        It is a widely used robust technology.
+                    </div>
+                    <div class="list-group-item-heading">
+                        <strong>What is Java?</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        Java is a programming language and a platform.
+                        Java is a high level, robust, object-oriented
+                        and secure programming language.
+                        <strong>Platform:</strong>Any hardware or
+                        software environment in which a program runs,
+                        is known as a platform. Since Java has a
+                        runtime environment (JRE) and API, it is called
+                        a platform.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="list-group well">
+                    <div class="list-group-item-heading">
+                        <strong>Biography</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        He was born in Pune, Maharashtra, India. He has
+                        a diploma in electrical engineering from Cusrow 
+                        Wadia Institute of Technology, Pune and a degree 
+                        from College of Engineering, Pune. He worked as an 
+                        electrical engineer at Hewlett Packard for a brief 
+                        period, before leaving the company in 1996 to become
+                        a lifestyle coach.
+                    </div>
+                    <div class="list-group-item-heading">
+                        <strong>Published works</strong>
+                    </div>
+                    <div class="list-group-item">
+                        <ol class="list-group-item well">
+                            <li class="list-group-item-success">Gaur Gopal Das (2018). Life's Amazing Secrets: How to Find Balance and Purpose in Your Life.</li>
+                            <li class="list-group-item-success">Gaur Gopal Das (2020). The Way of the Monk: The Four Steps to Peace, Purpose and Lasting Happiness.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 well">
+                <iframe width="535" height="315" 
+                        src="https://www.youtube.com/embed/LTnI7cmpDZI"
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        class="center-block"
+                        allowfullscreen>
+                </iframe>
+                <br />
+                <div class="progress">
+                    <div id="myBar" class="progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <span class="sr-only">45% Complete</span>
+                    </div>
+                </div>
+                <p>
+                    <button onclick="move()" class="btn btn-success">Click Me</button> |
+                    @Html.ActionLink("Home", "Index", "AcademyPortalEmployee", null, new { @class = "btn btn-primary" })
+                </p>
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Warning!</strong> To track the progress click the Click Me button.
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="list-group well">
+                    <div class="list-group-item-heading">
+                        <strong>Biography</strong>
+                    </div>
+                    <div class="list-group-item-info">
+                        He was born in Pune, Maharashtra, India. He has
+                        a diploma in electrical engineering from Cusrow
+                        Wadia Institute of Technology, Pune and a degree
+                        from College of Engineering, Pune. He worked as an
+                        electrical engineer at Hewlett Packard for a brief
+                        period, before leaving the company in 1996 to become
+                        a lifestyle coach.
+                    </div>
+                    <div class="list-group-item-heading">
+                        <strong>Published works</strong>
+                    </div>
+                    <div class="list-group-item">
+                        <ol class="list-group-item well">
+                            <li class="list-group-item-success">Gaur Gopal Das (2018). Life's Amazing Secrets: How to Find Balance and Purpose in Your Life.</li>
+                            <li class="list-group-item-success">Gaur Gopal Das (2020). The Way of the Monk: The Four Steps to Peace, Purpose and Lasting Happiness.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<script>
+    var i = 0;
+    function move() {
+        if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar");
+            var width = 1;
+            //setting default completion status as 400s
+            var id = setInterval(frame, 400);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                    i = 0;
+                } else {
+                    width++;
+                    elem.style.width = width + "%";
+                    elem.innerHTML = width + "%";
+                }
+            }
+        }
+    }
+</script>
+
+
+
+

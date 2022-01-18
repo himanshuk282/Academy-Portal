@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Academy Portal - Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div style="text-align: center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;border:solid;margin-top:2px;background-color:lightgrey">
+    <h2>Welcome to Admin Dashboard</h2>
+    <h4>You can perform the below actions</h4>
+</div>
+<hr />
+<div class="col-md-5 well">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="@Url.Action("NewRegistrations", "AcademyPortalAdmin")" class="btn btn-success">
+                <span class="glyphicon glyphicon-tasks"></span>
+                New Requests
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("SkillRegistration", "AcademyPortalAdmin")" class="btn btn-primary">
+                <span class="glyphicon glyphicon-edit"></span>
+                Register a new Skill
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("ModuleRegistration", "AcademyPortalAdmin")" class="btn btn-primary">
+                <span class="glyphicon glyphicon-edit"></span>
+                Register a new Module
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("Map", "AcademyPortalAdmin")" class="btn btn-success">
+                <span class="glyphicon glyphicon-list"></span>
+                Map registered Skill and Module
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-5 col-md-offset-2 well">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="@Url.Action("GiveHelp", "AcademyPortalAdmin")" class="btn btn-info">
+                <span class="glyphicon glyphicon-wrench"></span>
+                Help Section
+            </a>
+        </li>
+
+        <li class="list-group-item">
+            <a href="@Url.Action("BatchNominations", "AcademyPortalAdmin")" class="btn btn-success">
+                <span class="glyphicon glyphicon-tasks"></span>
+                Batch Nominations
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("ReportManagement", "AcademyPortalAdmin")" class="btn btn-danger">
+                <span class="glyphicon glyphicon-download-alt"></span>
+                Report Management
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("BatchRegistration", "AcademyPortalAdmin")" class="btn btn-primary">
+                <span class="glyphicon glyphicon-edit"></span>
+                Register a new Batch
+            </a>
+        </li>
+    </ul>
+</div>

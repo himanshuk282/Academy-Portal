@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Academy_Portal.Models.Help>
+@{
+    ViewBag.Title = "GiveHelp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Help Section</h2>
+@if (!Model.Any())
+{
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Later!</strong> No pending help related issues
+    </div>
+
+}
+else
+{
+    <table class="table-bordered table-hover table">
+        <tr>
+            <th>RequestId</th>
+            <th>Issue</th>
+            <th>Date Of Ticket</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var helpItem in Model)
+        {
+            <tr>
+                <td>@helpItem.RequestId</td>
+                <td>@helpItem.Issue</td>
+                <td>@helpItem.DateOfTicket.Value.ToShortDateString()</td>
+                <td>@Html.ActionLink("Provide Resolution", "ProvideResolution", new { id = helpItem.RequestId }, new {@class="btn btn-primary"})</td>
+            </tr>
+
+        }
+    </table>
+}
+
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ReportManagement";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ReportManagement</h2>
+<h4>Welcome to the Report Management Dashboard</h4>
+<h4>Please provide following details to download the data</h4>
+<div>
+    <p>
+        @using (Html.BeginForm("ReportSubmission", "AcademyPortalAdmin", FormMethod.Get))
+        {
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <b>Search By:</b>
+                        <br />
+                        <br/>
+                        @Html.RadioButton("searchBy", "SkillID")<text>Skill Id </text>
+                        @Html.RadioButton("searchBy", "ModuleID")<text>Module Id </text>
+                        @Html.RadioButton("searchBy", "BatchID")<text>Batch Id </text><br />
+                        @Html.TextBox("search", null, new {min="1",type="number",required = "required"})<input type="submit" value="Search" class="btn-success" style="margin-left:5px"/>
+                        @Html.ActionLink("Reset", "ReportManagement")
+                    </div>
+
+                </div>
+            </div>
+        }
+    </p>
+</div>
+
+
